@@ -49,3 +49,64 @@ requests on behalf of the user
 - Results in a 'token' that a Browser app can use to make requests on behalf of the user
 - Usually used when we have an app that only needs to access user data while they are logged in
 - very easy to set up thanks to Google's JS lib to automate flow
+
+```jsx
+class GoogleAuth extends React.Component{
+    state = {isSignedIn:null};
+
+
+    componentDidMount(){
+        window.gapi.load('client:auth2',() => {
+            window.gapi.client.init({
+                clientId:'YOUR_CLIENT_ID',
+                scope:'email'
+            }).then(()=>{
+                this.auth = window.gapi.auth2.getAuthInstance();
+                this.setState({isSignedIn:this.auth.isSignedIn.get()});
+                this.auth.isSignedIn.listen(this.onAuthChange);
+            });
+        });
+    }
+    onAuthChange = (isSignedIn) =>{
+         if(isSignedIn){
+             this.props.signIn();
+         }
+         else{
+             this.props.signOut();
+         }
+    }
+
+    onSignInClick = () => {
+        this.auth.signIn();
+    }
+
+    onSignOutClick = ()=>{
+        this.auth.signOut();
+    }
+
+    renderAuthButton(){
+        if(this.state.isSignedIn === null){
+            return null;
+        }
+        else if(this.state.isSignedIn){
+             return (
+             <button onClick={this.onSignOutClick} className = "ui red google button">
+                 <i className="google icon"/>
+                 sign out
+             </button>)
+        }
+        else{
+            return (
+                <button onClick={this.onSignInClick} className="ui red google button">
+                    <i className="google icon"/>
+                    sign in with google
+                </button>
+            )
+        }
+    }
+
+    render(){
+        return <div>{this.renderAuthButton()}</div>
+    }
+};
+```
