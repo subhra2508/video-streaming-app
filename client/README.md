@@ -110,3 +110,19 @@ class GoogleAuth extends React.Component{
     }
 };
 ```
+BAD PRACTISE :
+- state.pop()
+- state.push()
+- state[0] = 'hi'
+- state.name = 'Sam'
+- state.age = 30
+- delete state.name
+
+GOOD PRACTISE :
+- state.filter(element => element!=='hi')
+- [...state,'hi']
+- state.map(el => el === 'hi'?'bye':el)
+- {...state,name:'Sam'}
+- {...state,age:30}
+- {...state,age:undefined}
+- _.omit(state,'age')
