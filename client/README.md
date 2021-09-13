@@ -126,3 +126,16 @@ GOOD PRACTISE :
 - {...state,age:30}
 - {...state,age:undefined}
 - _.omit(state,'age')
+
+
+- Intentional Navigation : User clicks on a 'Link' component
+- programmatic navigation : We run code to forcibly navigate the user through our app
+
+
+sequence of steps:
+- User submits the form
+- we make request to backend API to create stream
+- we navigate user back to the list of streams
+ Time passes....
+- API responds with error,stream wasn't created and user doesn't know!
+- we either show error to the user or navigate them back to list of streams
