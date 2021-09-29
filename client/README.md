@@ -153,3 +153,6 @@ selection procedures :
 - url-based selection
 
 <img src="./../images/url_based_selection">
+
+### Important everytime we use id or something in url
+- with react-router,each component needs to be designed to work in isolation(fetch its own data!)
