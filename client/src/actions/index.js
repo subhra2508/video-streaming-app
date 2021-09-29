@@ -9,6 +9,7 @@ import {
     } 
 from "./types"
 import streams from '../apis/streams';
+import history from '../history';
 
 
 export const signIn = (userId) => {
@@ -30,6 +31,7 @@ export const createStream = (formvalues) => {
         const response = await streams.post('/streams',{...formvalues,userId});
         dispatch({type:CREATE_STREAM,payload:response.data});
         // do some programmatic navigation,get the user backe to root route
+        history.push('/')
         
     }
 }

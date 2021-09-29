@@ -139,3 +139,11 @@ sequence of steps:
  Time passes....
 - API responds with error,stream wasn't created and user doesn't know!
 - we either show error to the user or navigate them back to list of streams
+
+
+<img src="../images/programmatic_navigation.png"></img>
+
+
+Getting access to the history object is a pain so we are using different approach
+
+<img src="../images/programmatic_navigation_historyobj.png"></img>
