@@ -141,15 +141,15 @@ sequence of steps:
 - we either show error to the user or navigate them back to list of streams
 
 
-<img src="../images/programmatic_navigation.png"></img>
+<img src="../images/programmatic_navigation.png">
 
 
 Getting access to the history object is a pain so we are using different approach
 
-<img src="../images/programmatic_navigation_historyobj.png"></img>
+<img src="../images/programmatic_navigation_historyobj.png">
 
 selection procedures :
 - selection reducers
 - url-based selection
 
-<img src="./../images/url_based_selection"></img>
+<img src="./../images/url_based_selection">
