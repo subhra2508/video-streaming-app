@@ -5,10 +5,12 @@ import StreamForm from './StreamForm';
 
 class StreamCreate extends React.Component {
   onSubmit = formValues => {
+    console.log(formValues)
     this.props.createStream(formValues);
   };
 
   render() {
+    console.log("it's working")
     return (
       <div>
         <h3>Create a Stream</h3>
