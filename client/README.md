@@ -156,3 +156,44 @@ selection procedures :
 
 ### Important everytime we use id or something in url
 - with react-router,each component needs to be designed to work in isolation(fetch its own data!)
+
+
+
+### how to show a modal using reactdom portale
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+
+const Modal = props => {
+    return ReactDOM.createPortal(
+        <div className="ui dimmer modals visible active">
+            <div className="ui standard modal visible active">
+                I am a modal
+            </div>
+        </div>,
+        document.querySelector('#modal')
+    )
+};
+
+export default Modal;
+```
+we are giving an example of creating an portal for to show the warning message to delete post and attaching
+it to streamdelete section
+
+```js
+import React from 'react';
+import Modal from '../Modal';
+
+const StreamDelete = () => {
+    return (
+    <div>
+        StreamDelete
+        <Modal/>
+    </div>)
+};
+
+export default StreamDelete;
+```
